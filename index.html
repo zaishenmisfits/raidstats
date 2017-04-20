@@ -1,8 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en">
+<head>
+  <title>ZOM Raid Stats</title>
+  <meta charset = "utf-8">
+  <meta http - equiv = "X-UA-Compatible" content = "IE=edge">
+  <meta name = "viewport" content = "width=device-width, initial-scale=1">
+  <meta name = "description" content = ""><meta name = "author" content = "">
+  <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity = "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin = "anonymous">
+  <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity = "sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin = "anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity = "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin = "anonymous"></script>
+  <script src = "https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdn.datatables.net/v/bs/dt-1.10.13/datatables.min.js"></script>
+  <script src="https://cdn.datatables.net/plug-ins/1.10.13/sorting/alt-string.js"></script>
+<script type="text/javascript">
+$.extend( $.fn.dataTable.defaults, {
+    searching: false,
+    ordering:  true,
+    paging: false,
+    dom: "t"
+} );
+
+$(document).ready(function() {
+   var tables = $("table"),
+           stats = tables.filter(".table_stats");
+   stats.eq(0).DataTable({
+       "order": [[4, "desc"]],
+       "columnDefs": [
+               { "type": "alt-string", targets: 1 },
+               {"orderable": false, targets : [7,11]}
+            ]
+   });
+   stats.not(":eq(0)").DataTable({
+       "order": [[3, "desc"]],
+       "columnDefs": [
+               { "type": "alt-string", targets: 1 },
+               {"orderable": false, targets : [6,10]}
+            ]
+   });
+   tables.filter(".table_boons").DataTable({
+       "order": [[0, "asc"]],
+       "columnDefs": [
+               { "type": "alt-string", targets: 1 },
+            ]
+   });
+   tables.filter(".table_skills").DataTable({
+       "order": [[1, "desc"]]
+   });
+});
+</script>
+<style>
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #444;
+}
+td, th {
+    text-align: center;
+    white-space: nowrap;
+}
+.sorting_disabled {
+    padding: 5px !important;
+}
+table.dataTable.table-condensed .sorting::after, table.dataTable.table-condensed .sorting_asc::after, table.dataTable.table-condensed .sorting_desc::after {
+   right: 4px !important;
+}
+table.dataTable thead .sorting_desc::after {
+   color: red;
+}
+table.dataTable thead .sorting_asc::after {
+   color: green;
+}
+.text-left {
+    text-align: left;
+}
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+.nav-tabsc, .nav-pillsc {
+    text-align:center;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color:black;
+    background-color:#f2f2f2;
+}
+.table > tfoot > tr > td {
+    background-color: #FDFDFD;
+    color: #666;
+}
+.table > tfoot > tr:first-child > td, .table > tfoot > tr:last-child > td {
+    border-top: 3px solid #ddd;
+}
+table.dataTable thead .sorting::after { opacity: 0 !important; }
+table.dataTable.table-condensed > thead > tr > th.sorting { padding-right: 5px !important; }
+</style>
+</head>
 <body>
-
-<p><a href="test_cat.html">Test Cat</a> this is only a test</p>
-
+<center><h1>[ZOM] Zaishen Order of Misfits</h1></center>
+<center><h2>Raid Stats</h2></center>
+<br>
+<div class="tab-content">
+<div id="s_glob" class="tab-pane fade in active">
+<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+  <table class="table table-condensed table_stats dataTable" id="DataTables_Table_0" role="grid">
+  <tr>
+    <th>Boss</th>
+    <th>Date</th>
+    <th>Stats</th>
+  </tr>
+  <tr>
+    <td>Vale Guardian</td>
+    <td>4/22/17</td>
+    <td><a href="logs/test_cat.html">Click here to view</a></td>
+  </tr>
+  <tr>
+    <td>Gorseval</td>
+    <td>4/22/17</td>
+    <td><a href="logs/test_cat.html">Click here to view</a></td>
+  </tr>
+  <tr>
+    <td>Sabetha</td>
+    <td>4/22/17</td>
+    <td><a href="logs/test_cat.html">Click here to view</a></td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
 </body>
 </html>
