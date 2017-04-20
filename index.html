@@ -61,7 +61,7 @@ td, th {
     white-space: nowrap;
 }
 .sorting_disabled {
-    padding: 5px !important;
+    padding: 0px !important;
 }
 table.dataTable.table-condensed .sorting::after, table.dataTable.table-condensed .sorting_asc::after, table.dataTable.table-condensed .sorting_desc::after {
    right: 4px !important;
@@ -100,9 +100,17 @@ table.dataTable.table-condensed > thead > tr > th.sorting { padding-right: 5px !
 </style>
 </head>
 <body>
-<center><h1>[ZOM] Zaishen Order of Misfits</h1></center>
-<center><h2>Raid Stats</h2></center>
-<br>
+<div class="container">
+  <div class="container">
+    <div class="row" >
+<center>
+  <h1>Zaishen Order of Misfits</h1>
+  <p class="text"> An archive of logs from various raid bosses </p>
+</center>
+    </div>
+</br>
+</br>
+</br>
 <div class="tab-content">
 <div id="s_glob" class="tab-pane fade in active">
 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
@@ -110,24 +118,30 @@ table.dataTable.table-condensed > thead > tr > th.sorting { padding-right: 5px !
   <tr>
     <th>Boss</th>
     <th>Date</th>
+    <th>Defeated</th>
     <th>Stats</th>
   </tr>
   <tr>
     <td>Vale Guardian</td>
     <td>4/22/17</td>
+    <td>Yes</td>
     <td><a href="logs/test_cat.html">Click here to view</a></td>
   </tr>
   <tr>
     <td>Gorseval</td>
     <td>4/22/17</td>
+    <td>Yes</td>
     <td><a href="logs/test_cat.html">Click here to view</a></td>
   </tr>
   <tr>
     <td>Sabetha</td>
     <td>4/22/17</td>
+    <td>No</td>
     <td><a href="logs/test_cat.html">Click here to view</a></td>
   </tr>
 </table>
+</div>
+</div>
 </div>
 </div>
 </div>
